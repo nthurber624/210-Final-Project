@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block page_content %}
+    <h1> Members: </h1>
+    <hr>
+    <br>
+    <h3> Project Leader: </h3>
+    <p>
+        {{ leader.name }}
+        <br>
+        Email: {{ leader.email }}
+        <br>
+        Been a member since: {{ leader.dateCreated }}
+    </p>
+    <br>
+    <h3> Admins: </h3>
+    <ul id="userList1">
+    {% for admin in admins %}
+        <li>
+            {{ admin.name }}
+            <br>
+            Email: {{ admin.email }}
+            <br>
+            Been a member since: {{ admin.dateCreated }}
+        </li>
+    {% endfor %}
+    </ul>
+    <br>
+    {% if current_user.access >= 2 %}
+        <hr>
+        <h3> General Members: </h3>
+        <ul id="userList2">
+            {% for member in members %}
+            <li>
+                {{ member.name }}
+                <br>
+                Email: {{ member.email }}
+                <br>
+                Been a member since: {{ member.dateCreated }}
+            </li>            
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

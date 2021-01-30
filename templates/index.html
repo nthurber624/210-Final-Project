@@ -1,0 +1,334 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %} U of R Project {% endblock %}
+
+{% block page_content %}
+
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">z
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+.mySlides {display:none;}
+</style>
+<body id="myPage">
+
+<!-- Sidebar on click -->
+<nav class="w3-sidebar w3-bar-block w3-white w3-card w3-animate-left w3-xxlarge" style="display:none;z-index:2" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-display-topright w3-text-teal">Close
+    <i class="fa fa-remove"></i>
+  </a>
+  <a href="#" class="w3-bar-item w3-button">Link 1</a>
+  <a href="#" class="w3-bar-item w3-button">Link 2</a>
+  <a href="#" class="w3-bar-item w3-button">Link 3</a>
+  <a href="#" class="w3-bar-item w3-button">Link 4</a>
+  <a href="#" class="w3-bar-item w3-button">Link 5</a>
+</nav>
+
+
+<!-- Image Header -->
+<div class="w3-display-container w3-animate-opacity">
+  <img class="mySlides" src="static/random.png" alt="boat" style="width:100%;min-height:350px;max-height:600px;">
+  <img class="mySlides" src="static/1.jpg" alt="boat" style="width:100%;min-height:350px;max-height:600px;">
+  <img class="mySlides" src="static/2.png" alt="boat" style="width:100%;min-height:350px;max-height:600px;">
+  <img class="mySlides" src="static/3.png" alt="boat" style="width:100%;min-height:350px;max-height:600px;">
+  <img class="mySlides" src="static/4.jpg" alt="boat" style="width:100%;min-height:350px;max-height:600px;">
+  <img class="mySlides" src="static/5.jpg" alt="boat" style="width:100%;min-height:350px;max-height:600px;">
+  <img class="mySlides" src="static/6.png" alt="boat" style="width:100%;min-height:350px;max-height:600px;">
+  <img class="mySlides" src="static/7.jpg" alt="boat" style="width:100%;min-height:350px;max-height:600px;">
+  <img class="mySlides" src="static/8.jpg" alt="boat" style="width:100%;min-height:350px;max-height:600px;">
+  <img class="mySlides" src="static/9.jpg" alt="boat" style="width:100%;min-height:350px;max-height:600px;">
+  <img class="mySlides" src="static/10.jpg" alt="boat" style="width:100%;min-height:350px;max-height:600px;">
+  <img class="mySlides" src="static/11.jpg" alt="boat" style="width:100%;min-height:350px;max-height:600px;">
+  <img class="mySlides" src="static/12.png" alt="boat" style="width:100%;min-height:350px;max-height:600px;">
+  <img class="mySlides" src="static/13.jpg" alt="boat" style="width:100%;min-height:350px;max-height:600px;">
+  <img class="mySlides" src="static/14.jpg" alt="boat" style="width:100%;min-height:350px;max-height:600px;">
+  <img class="mySlides" src="static/15.jpg" alt="boat" style="width:100%;min-height:350px;max-height:600px;">
+
+
+<script>
+
+
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex +1> x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 5000); // Change image every 6 seconds
+}
+</script>
+
+
+  <div class="w3-container w3-display-bottomleft w3-margin-bottom">  
+    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-xlarge w3-theme w3-hover-teal" title="Go To W3.CSS">Check project Status</button>
+  </div>
+</div>
+
+
+
+
+<!-- Modal -->
+<div id="id01" class="w3-modal">
+  <div class="w3-modal-content w3-"> <h2 class="w3-center">Automatic Slideshow</h2>
+
+<div class="w3-content w3-section" style="max-width:500px">
+</div>
+
+
+    <header class="w3-container w3-teal w3-display-container"> 
+      <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-teal w3-display-topright"><i class="fa fa-remove"></i></span>
+      <h4>Check this</h4>
+      <h5>Because we can <i class="fa fa-smile-o"></i></h5>
+    </header>
+    <div class="w3-container">
+      <p>Cool huh? Ok, enough teasing around..</p>
+      <p>Go to our goals tab<a class="w3-text-teal" href="/proj/goals">Current Goals</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- Team Container -->
+<div class="w3-container w3-padding-64 w3-center" id="team">
+<h2>OUR TEAM</h2>
+<p>Meet the team -:</p>
+
+<div class="w3-row"><br>
+
+<div class="w3-quarter">
+  <img src="static/Adham.jpg" alt="proj" style="width:45%" class="w3-circle w3-hover-opacity">
+  <h3>Adham Mashaly</h3>
+  <p>Web Designer</p>
+</div>
+
+<div class="w3-quarter">
+  <img src="static/tai.jpeg" alt="proj" style="width:70%" class="w3-circle w3-hover-opacity">
+  <h3>Tai</h3>
+  <p>Web designer</p>
+</div>
+
+<div class="w3-quarter">
+  <img src="static/jessica.jpg" alt="Boss" style="width:45%" class="w3-circle w3-hover-opacity">
+  <h3>Jessica</h3>
+  <p>Web Designer</p>
+</div>
+
+<div class="w3-quarter">
+  <img src="static/rocky.png" alt="Boss" style="width:45%" class="w3-circle w3-hover-opacity">
+  <h3>Rocky</h3>
+  <p>Moral support</p>
+</div>
+
+</div>
+</div>
+
+<!-- Work Row -->
+<div class="w3-row-padding w3-padding-64 w3-theme-l1" id="work">
+
+<div class="w3-quarter">
+<h2>Our Work</h2>
+<p>MATE ROV(Remotely Operated Vehicles) team is a University of Rochester student led team, to work and develop underwater submarines, that helps with researching our waters. And working on cleaning the waters from plastic debree, surveying water, and monitiring underwater life. The team consist students from all backgrounds, that includes Computer Science majors, Mechanical engineering, chemical engineering and Electrical and computer engineering majors.</p>
+</div>
+
+<div class="w3-quarter">
+<div class="w3-card w3-white">
+  <img src="static/arduino.png" alt="ard" style="width:100%">
+  <div class="w3-container">
+  <h3>Computer Science</h3>
+  <h4>Coding</h4>
+  <p>Focusing on Arduino and communications</p>
+  <p>Rasberri pi</p>
+  <p>Python</p>
+  <p></p>
+  </div>
+  </div>
+</div>
+
+<div class="w3-quarter">
+<div class="w3-card w3-white">
+  <img src="static/6.png" alt="design" style="width:100%">
+  <div class="w3-container">
+  <h3>Mechanical Engineering</h3>
+  <h4>Desinging and Fabrication</h4>
+  <p>CAD:Fusion and Solidworks</p>
+  <p>Fabrication in Rettner</p>
+  <p>Designing parts.</p>
+  <p>Running flow tests</p>
+  </div>
+  </div>
+</div>
+
+<div class="w3-quarter">
+<div class="w3-card w3-white">
+  <img src="static/arduinoe.jpg" alt="arduino" style="width:100%">
+  <div class="w3-container">
+  <h3></h3>
+  <h4>Electrical </h4>
+  <p>Designing Circuits</p>
+  <p>Working with Computer science</p>
+  <p>Providing power</p>
+  <p>Making electrical connection</p>
+  </div>
+  </div>
+</div>
+
+</div>
+
+<!-- Container -->
+<div class="w3-container" style="position:relative">
+  <a onclick="w3_open()" class="w3-button w3-xlarge w3-circle w3-teal"
+  style="position:absolute;top:-28px;right:24px">+</a>
+</div>
+
+<!-- Pricing Row -->
+<div class="w3-row-padding w3-center w3-padding-64" id="pricing">
+    <h2>SponsorShip Packages</h2>
+    <p>Choose a pricing plan that fits your needs.</p><br>
+    <div class="w3-third w3-margin-bottom">
+      <ul class="w3-ul w3-border w3-hover-shadow">
+        <li class="w3-theme">
+          <p class="w3-xlarge">Basic</p>
+        </li>
+        <li class="w3-padding-16"><b>Mentioned in Acknowledgments section</b></li>
+        <li class="w3-padding-16"><b>Mentioned in our website</b></li>
+        <li class="w3-padding-16"><b>X</b></li>
+        <li class="w3-padding-16"><b>X</b> </li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide"><i class="fa fa-usd"></i> 10</h2>
+          <span class="w3-opacity">per month</span>
+        </li>
+        <li class="w3-theme-l5 w3-padding-24">
+        
+        </li>
+      </ul>
+    </div>
+
+    <div class="w3-third w3-margin-bottom">
+      <ul class="w3-ul w3-border w3-hover-shadow">
+        <li class="w3-theme-l2">
+          <p class="w3-xlarge">Pro</p>
+        </li>
+        <li class="w3-padding-16"><b>Mentioned in Acknowledgments section</b></li>
+        <li class="w3-padding-16"><b>Mentioned in our website</b> </li>
+        <li class="w3-padding-16"><b>Logo on T-shirts</b></li>
+        <li class="w3-padding-16"><b>X</b></li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide"><i class="fa fa-usd"></i>25</h2>
+          <span class="w3-opacity">per month</span>
+        </li>
+        <li class="w3-theme-l5 w3-padding-24">
+        </li>
+      </ul>
+    </div>
+
+    <div class="w3-third w3-margin-bottom">
+      <ul class="w3-ul w3-border w3-hover-shadow">
+        <li class="w3-theme">
+          <p class="w3-xlarge">Premium</p>
+        </li>
+        <li class="w3-padding-16"><b>Mentioned in Acknowledgments section</b> </li>
+        <li class="w3-padding-16"><b>Mentioned in our website</b></li>
+        <li class="w3-padding-16"><b>Logo on T-shirts</b> </li>
+        <li class="w3-padding-16"><b>Logo on Robot</b> </li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide"><i class="fa fa-usd"></i> 50</h2>
+          <span class="w3-opacity">per month</span>
+        </li>
+        <li class="w3-theme-l5 w3-padding-24">
+        </li>
+      </ul>
+    </div>
+</div>
+
+<!-- Contact Container -->
+<div class="w3-container w3-padding-64 w3-theme-l5" id="contact">
+  <div class="w3-row">
+    <div class="w3-col m5">
+    <div class="w3-padding-16"><span class="w3-xlarge w3-border-teal w3-bottombar">Contact Us</span></div>
+      <h3>Address</h3>
+      <p>Swing by for a cup of coffee over zoom, or Whateve.</p>
+      <p><i class="fa fa-map-marker w3-text-teal w3-xlarge"></i>Rochester, New York</p>
+      <p><i class="fa fa-phone w3-text-teal w3-xlarge"></i>  +00 1515151515</p>
+      <p><i class="fa fa-envelope-o w3-text-teal w3-xlarge"></i>amashaly@u.rochester.edu</p>
+    </div>
+    <div class="w3-col m7">
+      <form class="w3-container w3-card-4 w3-padding-16 w3-white" action="mailto:amashaly@u.rochester.edu" target="_blank">
+      <div class="w3-section">  
+        <label>Name</label>
+        <input class="w3-input" type="text" name="Name" required>
+      </div>
+      <div class="w3-section">      
+        <label>Email</label>
+        <input class="w3-input" type="text" name="Email" required>
+      </div>
+      <div class="w3-section">      
+        <label>Message</label>
+        <input class="w3-input" type="text" name="Message" required>
+      </div>  
+      <input class="w3-check" type="checkbox" checked name="Like">
+
+      <label>I Like it!</label>
+      <button type="submit" class="w3-button w3-right w3-theme">Send (not working Yet)</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Image of location/map -->
+<img src="/w3images/map.jpg" class="w3-image w3-greyscale-min" style="width:100%;">
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-32 w3-theme-d1 w3-center">
+  <h4>Follow Us</h4>
+  <a class="w3-button w3-large w3-teal" href="https://www.facebook.com/materovcompetition" title="Facebook"><i class="fa fa-facebook"></i></a>
+  <a class="w3-button w3-large w3-teal" href="https://twitter.com/matecenter" title="Twitter"><i class="fa fa-twitter"></i></a>
+  <a class="w3-button w3-large w3-teal" href="https://www.instagram.com/matecenter/" title="I"><i class="fa fa-instagram"></i></a>
+  <a class="w3-button w3-large w3-teal w3-hide-small" href="https://www.linkedin.com/groups/12033365/" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+  <div style="position:relative;bottom:100px;z-index:1;" class="w3-tooltip w3-right">
+    <span class="w3-text w3-padding w3-teal w3-hide-small">Go To Top</span>   
+    <a class="w3-button w3-theme" href="#myPage"><span class="w3-xlarge">
+    <i class="fa fa-chevron-circle-up"></i></span></a>
+  </div>
+</footer>
+
+<script>
+// Script for side navigation
+function w3_open() {
+  var x = document.getElementById("mySidebar");
+  x.style.width = "300px";
+  x.style.paddingTop = "10%";
+  x.style.display = "block";
+}
+
+// Close side navigation
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+
+// Used to toggle the menu on smaller screens when clicking on the menu button
+function openNav() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+</body>
+</html>
+
+{% endblock %}

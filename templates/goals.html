@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block page_content %}
+    <h1> Project Goals: </h1>
+    <hr>
+    <br>
+    <h3> Goals accomplished:</h3>
+    <ul id="completedList">
+    {% for complete in completed %}
+        <li>
+            {{ complete.content }}
+            <br>
+            {% if current_user.id == complete.contributorID %}
+                You created this goal.
+            {% else %}
+                {% for user in users %}
+                    {% if user.id == complete.contributorID %}
+                        Contributor: {{ user.name }}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+            {% if current_user.access == 3 %}
+                <br>
+                <a href="{{ url_for('proj.deleteGoal', id=complete.id) }}" class='btn btn-danger btn-sm'> Delete </a>
+                <a href="{{ url_for('proj.editGoal', id=complete.id) }}" class='btn btn-primary btn-sm'> Edit </a>
+                <a href="{{ url_for('proj.completeGoal', id=complete.id) }}" class='btn btn-secondary btn-sm'> Work on </a>
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+    <br>
+    <h3> Current goals: </h3>
+    <ul id="goalList">
+    {% for goal in goals %}
+        <li>
+            {{ goal.content }}
+            <br>
+            {% if current_user.id == goal.contributorID %}
+                You created this goal.
+            {% else %}
+                {% for user in users %}
+                    {% if user.id == goal.contributorID %}
+                        Contributor: {{ user.name }}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            
+            {% if current_user.access == 2 and current_user.id == goal.contributorID %}
+                <br>
+                <a href="{{ url_for('proj.deleteGoal', id=goal.id) }}" class='btn btn-danger btn-sm'> Delete </a>
+                <a href="{{ url_for('proj.editGoal', id=goal.id) }}" class='btn btn-primary btn-sm'> Edit </a>
+                <a href="{{ url_for('proj.completeGoal', id=goal.id) }}" class='btn btn-success btn-sm'> Complete </a>
+            {% elif current_user.access == 3 %}
+                <br>
+                <a href="{{ url_for('proj.deleteGoal', id=goal.id) }}" class='btn btn-danger btn-sm'> Delete </a>
+                <a href="{{ url_for('proj.editGoal', id=goal.id) }}" class='btn btn-primary btn-sm'> Edit </a>
+                <a href="{{ url_for('proj.completeGoal', id=goal.id) }}" class='btn btn-success btn-sm'> Complete </a>
+            {% endif %}
+        </li>
+    {% endfor %}
+    <br>
+    <hr>
+    {{ wtf.quick_form(goalForm) }}
+    </ul>
+{% endblock %}
