@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block page_content %}
+    <h1> Project Updates: </h1>
+    <hr>
+    <br>
+    <ul id="updateList">
+    {% for update in updates %}
+        <li>
+            {{ update.content }}
+            <br>
+            Date: {{ update.dateCreated }}
+            <br>
+            {% if current_user.id == update.contributorID %}
+                You created this update.
+            {% else %}
+                {% for user in users %}
+                    {% if user.id == update.contributorID %}
+                        Contributor: {{ user.name }}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+            {% if current_user.access == 2 and current_user.id == update.contributorID %}
+                <br>
+                <a href="{{ url_for('proj.deleteUpdate', id=update.id) }}" class='btn btn-danger btn-sm'> Delete </a>
+                <a href="{{ url_for('proj.editUpdate', id=update.id) }}" class='btn btn-primary btn-sm'> Edit </a>
+            {% elif current_user.access == 3 %}
+                <br>
+                <a href="{{ url_for('proj.deleteUpdate', id=update.id) }}" class='btn btn-danger btn-sm'> Delete </a>
+                <a href="{{ url_for('proj.editUpdate', id=update.id) }}" class='btn btn-primary btn-sm'> Edit </a>
+            {% endif %}
+        </li>
+    {% endfor %}
+    <br>
+    <hr>
+    {{ wtf.quick_form(updateForm) }}
+    </ul>
+{% endblock %}
